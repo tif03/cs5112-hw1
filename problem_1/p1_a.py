@@ -35,10 +35,10 @@ def stable_matching_1a(file) -> dict:
 
                 # If the hospital's preference already has a match
                 else:
-                    h2 = pairs[doc_preference]
+                    h2 = pairs[doc_preference] # MISTAKE - list of hospitals in preference order meaning doctors prefer hospitals with smaller indecies
                     h1_idx = doctors_pref[doc_preference].index(h)
                     h2_idx = doctors_pref[doc_preference].index(h2)
-                    if h1_idx > h2_idx:
+                    if h1_idx > h2_idx: # MISTAKE - checks if hq has a bigger index NOT smaller
                         pairs[doc_preference] = h
                         matched_hospitals.add(h)
                         matched_hospitals.remove(h2)
